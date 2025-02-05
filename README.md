@@ -1,5 +1,5 @@
 # Restaurant Management System - Frontend  
-A modern, responsive frontend interface for managing restaurant operations, built to integrate seamlessly with the [Restaurant Management API Backend](https://github.com/your-username/restaurant-management-backend).  
+A modern, responsive frontend interface for managing restaurant operations, built to integrate seamlessly with the [Restaurant Management API Backend](https://github.com/DhanaBalan2001/Restaurant-Management-Backend).  
 
 *[Live Demo](#) | [Backend Repo](https://github.com/your-username/restaurant-management-backend)*  
 
