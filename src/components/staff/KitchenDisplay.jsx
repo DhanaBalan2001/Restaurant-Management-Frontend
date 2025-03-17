@@ -10,7 +10,7 @@ const KitchenDisplay = () => {
 
   const fetchKitchenOrders = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/api/orders/kitchen', {
+    const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders/kitchen', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setOrders(response.data);
