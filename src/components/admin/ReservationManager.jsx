@@ -13,7 +13,7 @@ const ReservationManager = () => {
   const fetchReservations = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/reservations/all', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reservations/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReservations(response.data);
@@ -28,7 +28,7 @@ const ReservationManager = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.patch(
-        `http://localhost:5000/api/reservations/${reservationId}/status`,
+        `https://restaurant-management-backend-5s96.onrender.com/api/reservations/${reservationId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
