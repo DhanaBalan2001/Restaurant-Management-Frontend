@@ -10,7 +10,7 @@ const TableManagement = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/tables', {
+    const response = await fetch('https://restaurant-management-backend-5s96.onrender.com/api/tables', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
