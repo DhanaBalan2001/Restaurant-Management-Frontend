@@ -16,10 +16,10 @@ const Analytics = () => {
   const fetchAnalytics = async () => {
     const token = localStorage.getItem('token');
     const [sales, categories, peaks] = await Promise.all([
-      axios.get('http://localhost:5000/api/reports/sales', {
+      axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reports/sales', {
         headers: { Authorization: `Bearer ${token}` }
       }),
-      axios.get('http://localhost:5000/api/reports/categories', {
+      axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reports/categories', {
         headers: { Authorization: `Bearer ${token}` }
       }),
       axios.get('http://localhost:5000/api/reports/peak-hours', {
