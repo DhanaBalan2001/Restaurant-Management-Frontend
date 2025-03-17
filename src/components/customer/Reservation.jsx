@@ -25,7 +25,7 @@ const Reservation = () => {
   const fetchAvailableSlots = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:5000/api/reservations/available-slots`, {
+      const response = await axios.get(`https://restaurant-management-backend-5s96.onrender.com/api/reservations/available-slots`, {
         params: {
           date: formData.date,
           guestCount: Number(formData.guestCount)
@@ -62,7 +62,7 @@ const Reservation = () => {
       };
 
       const response = await axios.post(
-        'http://localhost:5000/api/reservations/create', 
+        'https://restaurant-management-backend-5s96.onrender.com/api/reservations/create', 
         reservationData,
         {
           headers: {
