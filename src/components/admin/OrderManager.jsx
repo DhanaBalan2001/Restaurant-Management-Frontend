@@ -11,7 +11,7 @@ const OrderManager = () => {
   const [socket, setSocket] = useState(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io('https://restaurant-management-backend-5s96.onrender.com');
     setSocket(newSocket);
 
     newSocket.on('newOrder', () => {
@@ -29,7 +29,7 @@ const OrderManager = () => {
 
   const fetchOrders = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/api/orders', {
+    const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setOrders(response.data);
@@ -39,7 +39,7 @@ const OrderManager = () => {
     const token = localStorage.getItem('token');
     try {
         const response = await axios.put(
-            `http://localhost:5000/api/orders/${orderId}/status`,
+            `https://restaurant-management-backend-5s96.onrender.com/api/orders/${orderId}/status`,
             { status },
             {
                 headers: {
