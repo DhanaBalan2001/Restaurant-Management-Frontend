@@ -29,7 +29,7 @@ const BranchManager = () => {
   const fetchBranches = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/branches', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/branches', {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const BranchManager = () => {
   const handleStatusUpdate = async (branchId, status) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/branches/${branchId}/status`,
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/branches/${branchId}/status`,
         { status },
         { 
           headers: { 
@@ -67,7 +67,7 @@ const BranchManager = () => {
     
     try {
       if (selectedBranch) {
-        await axios.put(`http://localhost:5000/api/branches/${selectedBranch._id}`,
+        await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/branches/${selectedBranch._id}`,
           formData,
           { 
             headers: { 
@@ -77,7 +77,7 @@ const BranchManager = () => {
           }
         );
       } else {
-        await axios.post('http://localhost:5000/api/branches',
+        await axios.post('https://restaurant-management-backend-5s96.onrender.comapi/branches',
           formData,
           { 
             headers: { 
