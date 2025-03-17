@@ -16,7 +16,7 @@ const CustomerStats = () => {
   const fetchCustomerStats = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get('http://localhost:5000/api/admin/analytics/customers', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/admin/analytics/customers', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
