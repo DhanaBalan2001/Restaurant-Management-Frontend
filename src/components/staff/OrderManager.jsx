@@ -12,7 +12,7 @@ const OrderManagement = () => {
 
   const fetchOrders = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/api/orders', {
+    const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setOrders(response.data);
@@ -20,7 +20,7 @@ const OrderManagement = () => {
 
   const updateOrderStatus = async (orderId, status) => {
     const token = localStorage.getItem('token');
-    await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, 
+    await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/orders/${orderId}/status`, 
       { status },
       { headers: { Authorization: `Bearer ${token}` }}
     );
