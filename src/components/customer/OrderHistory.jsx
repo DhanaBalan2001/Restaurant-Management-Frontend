@@ -13,7 +13,7 @@ const OrderHistory = () => {
   const fetchOrders = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await axios.get('http://localhost:5000/api/orders/user', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders/user', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data);
