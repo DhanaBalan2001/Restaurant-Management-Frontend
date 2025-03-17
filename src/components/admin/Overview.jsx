@@ -19,12 +19,12 @@ const Overview = () => {
     const token = localStorage.getItem('token');
     try {
       // Fetch daily stats
-      const dailyResponse = await axios.get('http://localhost:5000/api/reports/daily', {
+      const dailyResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reports/daily', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
       // Fetch monthly stats
-      const monthlyResponse = await axios.get('http://localhost:5000/api/reports/monthly', {
+      const monthlyResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reports/monthly', {
         params: {
           month: new Date().getMonth() + 1,
           year: new Date().getFullYear()
@@ -33,12 +33,12 @@ const Overview = () => {
       });
 
       // Fetch orders count
-      const ordersResponse = await axios.get('http://localhost:5000/api/orders', {
+      const ordersResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
       // Fetch pending reservations
-      const reservationsResponse = await axios.get('http://localhost:5000/api/reservations/pending', {
+      const reservationsResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reservations/pending', {
         headers: { Authorization: `Bearer ${token}` }
       });
 
