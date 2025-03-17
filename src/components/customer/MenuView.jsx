@@ -13,7 +13,7 @@ const MenuView = () => {
 
   const fetchMenu = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/menu');
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/menu');
       setMenu(response.data);
     } finally {
       setLoading(false);
@@ -48,7 +48,7 @@ const MenuView = () => {
   const placeOrder = async () => {
     const token = localStorage.getItem('token');
     try {
-      await axios.post('http://localhost:5000/api/orders', {
+      await axios.post('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
         items: cart,
         total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
       }, {
