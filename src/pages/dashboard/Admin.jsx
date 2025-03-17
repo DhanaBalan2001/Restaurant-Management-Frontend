@@ -28,11 +28,11 @@ const AdminDashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         const [ordersRes, inventoryRes, menuRes, dailyReportRes, reservationsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/orders', { headers }),
-          axios.get('http://localhost:5000/api/inventory', { headers }),
-          axios.get('http://localhost:5000/api/menu', { headers }),
-          axios.get('http://localhost:5000/api/reports/daily', { headers }),
-          axios.get('http://localhost:5000/api/reservations/all', { headers })
+          axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', { headers }),
+          axios.get('https://restaurant-management-backend-5s96.onrender.com/api/inventory', { headers }),
+          axios.get('https://restaurant-management-backend-5s96.onrender.com/api/menu', { headers }),
+          axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reports/daily', { headers }),
+          axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reservations/all', { headers })
         ]);
 
         setOrders(ordersRes.data);
@@ -56,14 +56,14 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.patch(
-        `http://localhost:5000/api/reservations/${reservationId}/status`,
+        `https://restaurant-management-backend-5s96.onrender.comapi/reservations/${reservationId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
       
       alert(response.data.message);
       
-      const reservationsRes = await axios.get('http://localhost:5000/api/reservations/all', {
+      const reservationsRes = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/reservations/all', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReservations(reservationsRes.data);
@@ -75,11 +75,11 @@ const AdminDashboard = () => {
   const handleUpdateOrderStatus = async (orderId, status) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, 
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/orders/${orderId}/status`, 
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
-      const ordersRes = await axios.get('http://localhost:5000/api/orders', {
+      const ordersRes = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(ordersRes.data);
@@ -91,11 +91,11 @@ const AdminDashboard = () => {
   const handleUpdateInventory = async (inventoryId, quantity) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/inventory/update/${inventoryId}`,
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/inventory/update/${inventoryId}`,
         { quantity },
         { headers: { Authorization: `Bearer ${token}` }}
       );
-      const inventoryRes = await axios.get('http://localhost:5000/api/inventory', {
+      const inventoryRes = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/inventory', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setInventory(inventoryRes.data);
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:5000/api/menu',
+      const response = await axios.post('https://restaurant-management-backend-5s96.onrender.com/api/menu',
         {
           ...newMenuItem,
           price: Number(newMenuItem.price)
@@ -149,11 +149,11 @@ const AdminDashboard = () => {
   const handleUpdateMenuItem = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/menu/${editingMenuItem._id}`,
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/menu/${editingMenuItem._id}`,
         editingMenuItem,
         { headers: { Authorization: `Bearer ${token}` }}
       );
-      const menuRes = await axios.get('http://localhost:5000/api/menu', {
+      const menuRes = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/menu', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMenuItems(menuRes.data);
@@ -167,10 +167,10 @@ const AdminDashboard = () => {
   const handleDeleteMenuItem = async (menuId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/menu/${menuId}`, {
+      await axios.delete(`https://restaurant-management-backend-5s96.onrender.com/api/menu/${menuId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      const menuRes = await axios.get('http://localhost:5000/api/menu', {
+      const menuRes = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/menu', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMenuItems(menuRes.data);
