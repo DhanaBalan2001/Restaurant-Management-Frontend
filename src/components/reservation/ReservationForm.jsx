@@ -10,14 +10,14 @@ const ReservationForm = () => {
   const [selectedTable, setSelectedTable] = useState(null);
 
   const checkAvailability = async () => {
-    const response = await fetch(`http://localhost:5000/api/reservations/available-slots?date=${formData.date}&guestCount=${formData.guestCount}`);
+    const response = await fetch(`https://restaurant-management-backend-5s96.onrender.com/api/reservations/available-slots?date=${formData.date}&guestCount=${formData.guestCount}`);
     const data = await response.json();
     setAvailableSlots(data.availability);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/reservations/create', {
+    const response = await fetch('https://restaurant-management-backend-5s96.onrender.com/api/reservations/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
