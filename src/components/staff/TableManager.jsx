@@ -10,7 +10,7 @@ const TableStatus = () => {
 
   const fetchTables = async () => {
     const token = localStorage.getItem('token');
-    const response = await axios.get('http://localhost:5000/api/tables', {
+    const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/tables', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setTables(response.data);
@@ -18,7 +18,7 @@ const TableStatus = () => {
 
   const updateTableStatus = async (tableId, status) => {
     const token = localStorage.getItem('token');
-    await axios.put(`http://localhost:5000/api/tables/${tableId}/status`,
+    await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/tables/${tableId}/status`,
       { status },
       { headers: { Authorization: `Bearer ${token}` }}
     );
