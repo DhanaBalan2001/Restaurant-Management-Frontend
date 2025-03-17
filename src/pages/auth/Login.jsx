@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('https://restaurant-management-backend-5s96.onrender.com/api/auth/login', formData);
       
       // Store user data in localStorage
       localStorage.setItem('token', response.data.token);
