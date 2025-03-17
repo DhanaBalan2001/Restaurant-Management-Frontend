@@ -16,7 +16,7 @@ const StaffManager = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/admin/staff', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/admin/staff', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setStaff(response.data);
@@ -32,13 +32,13 @@ const StaffManager = () => {
     try {
       if (editingStaff) {
         await axios.put(
-          `http://localhost:5000/api/admin/staff/${editingStaff._id}`,
+          `https://restaurant-management-backend-5s96.onrender.com/api/admin/staff/${editingStaff._id}`,
           formData,
           { headers: { Authorization: `Bearer ${token}` }}
         );
       } else {
         await axios.post(
-          'http://localhost:5000/api/admin/staff',
+          'https://restaurant-management-backend-5s96.onrender.com/api/admin/staff',
           formData,
           { headers: { Authorization: `Bearer ${token}` }}
         );
@@ -55,7 +55,7 @@ const StaffManager = () => {
     const token = localStorage.getItem('token');
     try {
       await axios.put(
-        `http://localhost:5000/api/admin/staff/${staffId}/status`,
+        `https://restaurant-management-backend-5s96.onrender.com/api/admin/staff/${staffId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
