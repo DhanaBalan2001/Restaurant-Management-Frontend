@@ -18,7 +18,7 @@ const InventoryManager = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/inventory', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/inventory', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setInventory(response.data);
@@ -35,7 +35,7 @@ const InventoryManager = () => {
     try {
       if (editingItem) {
         await axios.put(
-          `http://localhost:5000/api/inventory/update/${editingItem._id}`,
+          `https://restaurant-management-backend-5s96.onrender.com/inventory/update/${editingItem._id}`,
           {
             name: formData.name,
             quantity: parseInt(formData.quantity),
@@ -51,7 +51,7 @@ const InventoryManager = () => {
         );
       } else {
         await axios.post(
-          'http://localhost:5000/api/inventory',
+          'https://restaurant-management-backend-5s96.onrender.com/api/inventory',
           formData,
           { headers: { Authorization: `Bearer ${token}` }}
         );
@@ -73,7 +73,7 @@ const InventoryManager = () => {
   const confirmDelete = async () => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/inventory/${itemToDelete}`, {
+      await axios.delete(`https://restaurant-management-backend-5s96.onrender.com/api/inventory/${itemToDelete}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       await fetchInventory();
