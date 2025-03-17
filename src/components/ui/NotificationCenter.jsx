@@ -7,7 +7,7 @@ const NotificationCenter = () => {
   const [unreadCount, setUnreadCount] = useState(0);
 
   useEffect(() => {
-    const socket = io('http://localhost:5000', {
+    const socket = io('https://restaurant-management-backend-5s96.onrender.com', {
       transports: ['websocket'],
       auth: {
         token: localStorage.getItem('token')
