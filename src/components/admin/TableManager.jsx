@@ -20,7 +20,7 @@ const TableManager = () => {
   const fetchTables = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/tables', {
+      const response = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/tables', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTables(response.data);
@@ -32,7 +32,7 @@ const TableManager = () => {
   const handleStatusUpdate = async (tableId, status) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:5000/api/tables/${tableId}`,
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/tables/${tableId}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
@@ -48,12 +48,12 @@ const TableManager = () => {
     
     try {
       if (selectedTable) {
-        await axios.put(`http://localhost:5000/api/tables/${selectedTable._id}`, 
+        await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/tables/${selectedTable._id}`, 
           formData,
           { headers: { Authorization: `Bearer ${token}` }}
         );
       } else {
-        await axios.post('http://localhost:5000/api/tables', 
+        await axios.post('https://restaurant-management-backend-5s96.onrender.com/api/tables', 
           formData,
           { headers: { Authorization: `Bearer ${token}` }}
         );
