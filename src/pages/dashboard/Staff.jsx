@@ -10,12 +10,12 @@ const StaffDashboard = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('token');
       try {
-        const ordersResponse = await axios.get('http://localhost:5000/api/orders', {
+        const ordersResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setOrders(ordersResponse.data);
 
-        const tablesResponse = await axios.get('http://localhost:5000/api/tables', {
+        const tablesResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/tables', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setTables(tablesResponse.data);
@@ -29,12 +29,12 @@ const StaffDashboard = () => {
   const updateOrderStatus = async (orderId, status) => {
     const token = localStorage.getItem('token');
     try {
-      await axios.put(`http://localhost:5000/api/orders/${orderId}/status`, 
+      await axios.put(`https://restaurant-management-backend-5s96.onrender.com/api/orders/${orderId}/status`, 
         { status },
         { headers: { Authorization: `Bearer ${token}` }}
       );
       // Refresh orders after update
-      const ordersResponse = await axios.get('http://localhost:5000/api/orders', {
+      const ordersResponse = await axios.get('https://restaurant-management-backend-5s96.onrender.com/api/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(ordersResponse.data);
