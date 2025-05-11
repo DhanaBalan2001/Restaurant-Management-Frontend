@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -78,28 +77,10 @@ const ReservationForm = () => {
 
   const handleTableSelect = (tableId) => {
     setSelectedTable(tableId);
-=======
-import React, { useState } from 'react';
-
-const ReservationForm = () => {
-  const [formData, setFormData] = useState({
-    date: '',
-    guestCount: '',
-    timeSlot: ''
-  });
-  const [availableSlots, setAvailableSlots] = useState([]);
-  const [selectedTable, setSelectedTable] = useState(null);
-
-  const checkAvailability = async () => {
-    const response = await fetch(`https://restaurant-management-backend-5s96.onrender.com/api/reservations/available-slots?date=${formData.date}&guestCount=${formData.guestCount}`);
-    const data = await response.json();
-    setAvailableSlots(data.availability);
->>>>>>> fd5531ccdbe84301cfc7aef5e652cd796d9210e1
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     
     if (!selectedTable) {
       toast.error('Please select a table');
@@ -290,77 +271,6 @@ const ReservationForm = () => {
           </button>
         </div>
       </form>
-=======
-    const response = await fetch('https://restaurant-management-backend-5s96.onrender.com/api/reservations/create', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${localStorage.getItem('token')}`
-      },
-      body: JSON.stringify({
-        date: formData.date,
-        timeSlot: formData.timeSlot,
-        guestCount: parseInt(formData.guestCount),
-        table: selectedTable
-      })
-    });
-    if (response.ok) {
-      // Handle successful reservation
-      alert('Reservation created successfully!');
-    }
-  };
-
-  return (
-    <div className="reservation-container">
-      <h2>Make a Reservation</h2>
-      <div className="availability-check">
-        <input
-          type="date"
-          value={formData.date}
-          onChange={(e) => setFormData({...formData, date: e.target.value})}
-        />
-        <input
-          type="number"
-          placeholder="Number of Guests"
-          value={formData.guestCount}
-          onChange={(e) => setFormData({...formData, guestCount: e.target.value})}
-        />
-        <button onClick={checkAvailability}>Check Availability</button>
-      </div>
-
-      {availableSlots.length > 0 && (
-        <div className="time-slots">
-          <h3>Available Time Slots</h3>
-          <div className="slots-grid">
-            {availableSlots.map((slot) => (
-              <div key={slot.timeSlot} className="slot-item">
-                <h4>{slot.timeSlot}</h4>
-                <div className="tables-list">
-                  {slot.availableTables.map((table) => (
-                    <button
-                      key={table._id}
-                      onClick={() => {
-                        setSelectedTable(table._id);
-                        setFormData({...formData, timeSlot: slot.timeSlot});
-                      }}
-                      className={selectedTable === table._id ? 'selected' : ''}
-                    >
-                      Table {table.tableNumber}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {selectedTable && (
-        <button onClick={handleSubmit} className="submit-reservation">
-          Confirm Reservation
-        </button>
-      )}
->>>>>>> fd5531ccdbe84301cfc7aef5e652cd796d9210e1
     </div>
   );
 };
