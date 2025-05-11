@@ -97,15 +97,4 @@ VITE_API_BASE_URL=https://your-deployed-backend.com/api
 - Mobile-responsive design  
 
 ## License  
-MIT License © 2024 [Your Name]  
-
---- 
-
-### Notes:  
-1. Replace placeholder links (`your-username`, `Live Demo`) with actual URLs.  
-2. Add screenshots/GIFs to showcase the UI.  
-3. Include a `CONTRIBUTING.md` for detailed guidelines.  
-4. Customize the tech stack based on your framework (e.g., Angular/Vue.js).  
-
-This README provides a clear overview while highlighting integration with your backend API.
->>>>>>> fd5531ccdbe84301cfc7aef5e652cd796d9210e1
+MIT License © 2025
